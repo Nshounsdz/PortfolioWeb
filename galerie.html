@@ -3,89 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Accueil</title>
-    <link rel="stylesheet" href="galerie.css">
+    <title>Portfolio - Frise Chronologique</title>
+    <link rel="stylesheet" href="frise.css">
 </head>
 <body>
     <nav>
-        <a href="index.html">Acceil</a>
-        <a href="frise.html">Portfolio Virtuel</a>
-        <a href="#projets">Bande Démo</a>
+        <a href="index.html">Accueil</a>
+        <a href="#timeline">Version Vidéo</a>
+        <a href="galerie.html">Galerie</a>
         <a href="#contact">Contact</a>
     </nav>
 
-    <div class="container fade-in">
-        <img src="media\IMG_20241005_230910_065.png" alt="Votre Photo">
-        <h1>Naïm Ben Amar</h1>
-        <p>Bienvenue sur mon portfolio !</p>
-    </div>
-    
-    <section id="projets"  class="fade-in">
-        <div class="row"> 
-            <div class="column">
-                <div class="column-event">
-                    <a href="media\IMG_20241005_230910_065.png">
-                        <img src="media\IMG_20241005_230910_065.png" style="width:100%">
-                        <span class="column-content">Call of Duty : World at War</span>
-                    </a>
-                </div>
-
-                <div class="column-event">
-                    <a href="media\IMG_20241005_230910_065.png">
-                        <img src="media\IMG_20241005_230910_065.png" style="width:100%">
-                        <span class="column-content">Call of Duty : World at War</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="column-event">
-                    <a href="media\IMG_20241005_230910_065.png">
-                        <img src="media\IMG_20241005_230910_065.png" style="width:100%">
-                        <span class="column-content">Call of Duty : World at War</span>
-                    </a>
-                </div>
-
-                <div class="column-event">
-                    <a href="media\IMG_20241005_230910_065.png">
-                        <img src="media\IMG_20241005_230910_065.png" style="width:100%">
-                        <span class="column-content">Call of Duty : World at War</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="column-event">
-                    <a href="media\IMG_20241005_230910_065.png">
-                        <img src="media\IMG_20241005_230910_065.png" style="width:100%">
-                        <span class="column-content">Call of Duty : World at War</span>
-                    </a>
-                </div>
-
-                <div class="column-event">
-                    <a href="media\IMG_20241005_230910_065.png">
-                        <img src="media\IMG_20241005_230910_065.png" style="width:100%">
-                        <span class="column-content">Call of Duty : World at War</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="column-event">
-                    <a href="media\IMG_20241005_230910_065.png">
-                        <img src="media\IMG_20241005_230910_065.png" style="width:100%">
-                        <span class="column-content">Call of Duty : World at War</span>
-                    </a>
-                </div>
-
-                <div class="column-event">
-                    <a href="media\IMG_20241005_230910_065.png">
-                        <img src="media\IMG_20241005_230910_065.png" style="width:100%">
-                        <span class="column-content">Call of Duty : World at War</span>
-                    </a>
-                </div>
+    <section id="timeline2" class="fade-in">
+        <h2>N</h2>
+        <div class="timeline2">
+            <div class="timeline-event2" onclick="location.href='page1.html'">
+                <span class="timeline-date2">Commencer !</span>
             </div>
         </div>
+    </section>
+
+    <section id="timeline" class="fade-in">
+        <h1>Chapitres</h1>
+        <div class="timeline">
+            <div class="timeline-event" onclick="location.href='page1.html'">
+                <span class="timeline-date">2016 -2018</span>
+                <span class="timeline-content">Super Mario 64</span>
+                <img src="media\mario.png">
+            </div>
+            <div class="timeline-event" onclick="location.href='page2.html'">
+                <span class="timeline-date">2018 - 2021</span>
+                <span class="timeline-content">Call of Duty : World at War</span>
+                <img src="media\codwaw.jpg">
+            </div>
+            <div class="timeline-event" onclick="location.href='page3.html'">
+                <span class="timeline-date">2020 - Now</span>
+                <span class="timeline-content">Début de la 3D</span>
+                <img src="media\blender.png">
+            </div>
+            <div class="timeline-event" onclick="location.href='page3.html'">
+                <span class="timeline-date">2023 - 2024</span>
+                <span class="timeline-content">3 Axes</span>
+                <img src="media\3axes.png">
+            </div>
+            <div class="timeline-event" onclick="location.href='page3.html'">
+                <span class="timeline-date">2024 - Now</span>
+                <span class="timeline-content">YNOV</span>
+                <img src="media\ynov.png">
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="fade-in">
+        <h2>Version Vidéo</h2>
+        <video controls>
+            <source src="media\Portfolio_Naim_Ben_Amar.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
     </section>
 
     <section id="contact" class="fade-in">
@@ -93,6 +67,6 @@
         <a href="mailto:naim.nshou@gmail.com">naim.nshou@gmail.com</a>
     </section>
 
-    <script src="script.js"></script>
+    <script src="frise.js"></script>
 </body>
 </html>

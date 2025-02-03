@@ -1,11 +1,11 @@
+/* Styles généraux */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to top right, #a46, #4c6);
-    color: #fff;
-    overflow-x: hidden;
+    background: linear-gradient(to top right, #606, #b90);
 }
 
+/* Navigation */
 nav {
     position: fixed;
     top: 0;
@@ -32,62 +32,109 @@ nav a:hover {
     color: #00bcd4;
 }
 
-* {
-  box-sizing: border-box;
+/* Section timeline */
+#timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-body {
-  margin: 0;
-  font-family: Arial;
+#timeline h2 {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.header {
-  text-align: center;
-  padding: 32px;
+.timeline {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Espacement entre les boutons */
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
+.timeline-event {
+    /*background-color: #651;*/
+    background: linear-gradient(to top right, #550, #b90);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-/* Create four equal columns that sits next to each other */
-.column {
-  flex: 25%;
-  max-width: 25%;
-  padding: 0 4px;
+.timeline img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-direction: row;
 }
 
-.column-content {
+.timeline-event:hover {
+    background: linear-gradient(to top right, #cc0, #b90);
+    transform: scale(1.1);
+}
+
+.timeline-date {
     font-weight: bold;
     display: block;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+    font-size: 0.9rem;
+}
+
+#timeline2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Utilisation de toute la hauteur de l'écran */
+}
+
+#timeline2 h2 {
     text-align: center;
+    margin-bottom: 2rem;
+    font-size: 100px;
 }
 
-.column-event:hover {
-    transform: scale(1.03);
+.timeline2 {
+    display: flex;
+    justify-content: center;
 }
 
-.column img {
-  margin-top: 90px;
-  vertical-align: middle;
+.timeline-event2 {
+    background: linear-gradient(to top right, #aa0, #a03);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media (max-width: 800px) {
-  .column {
-    flex: 50%;
-    max-width: 50%;
-  }
+.timeline-event2:hover {
+    background: linear-gradient(to top right, #cc0, #b90);
+    transform: scale(1.5);
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
+.timeline-date2 {
+    font-weight: bold;
+    display: block;
+}
+
+.timeline-content2 {
+    font-size: 0.9rem;
+}
+
+section, section video {
+    padding: 5rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .fade-in {
@@ -99,47 +146,4 @@ body {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 5rem 1rem;
-}
-
-.container img {
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #fff;
-}
-
-.container p {
-    font-size: 1.2rem;
-    color: #aaa;
-}
-
-section {
-    padding: 5rem 1rem;
-    max-width: 2000px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-section img, section video {
-    max-width: 100%;
-    margin-bottom: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    justify-content: center;
 }
