@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Frise Chronologique</title>
+    <link rel="stylesheet" href="frise.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="#timeline">Version Vidéo</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="timeline2" class="fade-in">
+        <h2>Ma Frise Chronologique</h2>
+        <div class="timeline2">
+            <div class="timeline-event2" onclick="location.href='page1.html'">
+                <span class="timeline-date2">Commencer !</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="fade-in">
+        <h1>Chapitres</h1>
+        <div class="timeline">
+            <div class="timeline-event" onclick="location.href='page1.html'">
+                <span class="timeline-date">2016 -2018</span>
+                <span class="timeline-content">Super Mario 64</span>
+                <img src="D:\Site\media\frise\mario.png">
+            </div>
+            <div class="timeline-event" onclick="location.href='page2.html'">
+                <span class="timeline-date">2018 - 2021</span>
+                <span class="timeline-content">Call of Duty : World at War</span>
+                <img src="D:\Site\media\frise\codwaw.jpg">
+            </div>
+            <div class="timeline-event" onclick="location.href='page3.html'">
+                <span class="timeline-date">2020</span>
+                <span class="timeline-content">Début de la 3D</span>
+                <img src="D:\Site\media\frise\blender.png" alt="Votre Photo">
+            </div>
+            <div class="timeline-event" onclick="location.href='page3.html'">
+                <span class="timeline-date">2023 - 2024</span>
+                <span class="timeline-content">3 Axes</span>
+                <img src="D:\Site\media\frise\3axes.png" alt="Votre Photo">
+            </div>
+            <div class="timeline-event" onclick="location.href='page3.html'">
+                <span class="timeline-date">2024 - Now</span>
+                <span class="timeline-content">YNOV</span>
+                <img src="D:\Site\media\frise\ynov.png" alt="Votre Photo">
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="fade-in">
+        <h2>Version Vidéo</h2>
+        <video controls>
+            <source src="projet-video.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <h2>Contact</h2>
+        <p>Pour me contacter, veuillez m'envoyer un message à <a href="mailto:votre-email@example.com">votre-email@example.com</a>.</p>
+    </section>
+
+    <script src="frise.js"></script>
+</body>
+</html>

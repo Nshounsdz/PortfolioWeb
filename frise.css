@@ -1,0 +1,149 @@
+/* Styles généraux */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to top right, #606, #b90);
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00bcd4;
+}
+
+/* Section timeline */
+#timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#timeline h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.timeline {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Espacement entre les boutons */
+}
+
+.timeline-event {
+    /*background-color: #651;*/
+    background: linear-gradient(to top right, #550, #b90);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.timeline img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+}
+
+.timeline-event:hover {
+    background: linear-gradient(to top right, #cc0, #b90);
+    transform: scale(1.1);
+}
+
+.timeline-date {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+    font-size: 0.9rem;
+}
+
+#timeline2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Utilisation de toute la hauteur de l'écran */
+}
+
+#timeline2 h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 100px;
+}
+
+.timeline2 {
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-event2 {
+    background: linear-gradient(to top right, #aa0, #a03);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.timeline-event2:hover {
+    background: linear-gradient(to top right, #cc0, #b90);
+    transform: scale(1.5);
+}
+
+.timeline-date2 {
+    font-weight: bold;
+    display: block;
+}
+
+.timeline-content2 {
+    font-size: 0.9rem;
+}
+
+section {
+    padding: 5rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
