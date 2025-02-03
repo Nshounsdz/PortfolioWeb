@@ -130,7 +130,7 @@ nav a:hover {
     font-size: 0.9rem;
 }
 
-section {
+section, section video {
     padding: 5rem 1rem;
     max-width: 800px;
     margin: 0 auto;
