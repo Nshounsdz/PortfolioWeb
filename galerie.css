@@ -42,6 +42,16 @@ body {
   font-family: Arial;
 }
 
+#titre h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 100px;
+}
+
+.titre {
+    display: flex;
+    justify-content: center;
+}
 
 /* Center website */
 .main {
@@ -80,7 +90,7 @@ h1 {
 
 /* Content */
 .content {
-  background: linear-gradient(to top right, #950, #b90);
+  background: linear-gradient(to top right, #0ca, #156);
   padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
@@ -101,18 +111,18 @@ h1 {
   border: none;
   outline: none;
   padding: 16px 16px;
-  background: linear-gradient(to top left, #530, #950);
+  background: linear-gradient(to top right, #084, #053);
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
 
 .btn:hover {
-  background: linear-gradient(to top right, #a60, #b90);
+  background: linear-gradient(to top right, #0ca, #156);
 }
 
 .btn.active {
-  background: linear-gradient(to top right, #950, #b90);
+  background: linear-gradient(to top right, #0ca, #156);
   color: white;
 }
 
