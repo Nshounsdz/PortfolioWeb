@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Frise Chronologique</title>
-    <link rel="stylesheet" href="frise.css">
+    <link rel="stylesheet" href="galerie.css">
 </head>
 <body>
     <nav>
@@ -23,34 +23,81 @@
         </div>
     </section>
 
-    <section id="timeline" class="fade-in">
-        <h1>Chapitres</h1>
-        <div class="timeline">
-            <div class="timeline-event" onclick="location.href='page1.html'">
-                <span class="timeline-date">2016 -2018</span>
-                <span class="timeline-content">Super Mario 64</span>
-                <img src="media\mario.png">
+        <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+            <button class="btn" onclick="filterSelection('nature')"> Nature</button>
+            <button class="btn" onclick="filterSelection('cars')"> Cars</button>
+            <button class="btn" onclick="filterSelection('people')"> People</button>
+        </div>
+
+    <section id="galerie" class="fade-in">
+        <div class="row">
+            <div class="column nature">
+                <div class="content">
+                    <img src="media\IMG_20241005_230910_065.png" alt="Mountains" style="width:100%">
+                    <h4>Mountains</h4>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
             </div>
-            <div class="timeline-event" onclick="location.href='page2.html'">
-                <span class="timeline-date">2018 - 2021</span>
-                <span class="timeline-content">Call of Duty : World at War</span>
-                <img src="media\codwaw.jpg">
+            <div class="column nature">
+                <div class="content">
+                    <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
+                    <h4>Lights</h4>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
             </div>
-            <div class="timeline-event" onclick="location.href='page3.html'">
-                <span class="timeline-date">2020 - Now</span>
-                <span class="timeline-content">Début de la 3D</span>
-                <img src="media\blender.png">
+            <div class="column nature">
+                <div class="content">
+                    <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
+                    <h4>Forest</h4>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
             </div>
-            <div class="timeline-event" onclick="location.href='page3.html'">
-                <span class="timeline-date">2023 - 2024</span>
-                <span class="timeline-content">3 Axes</span>
-                <img src="media\3axes.png">
+  
+            <div class="column cars">
+                <div class="content">
+                    <img src="/w3images/cars1.jpg" alt="Car" style="width:100%">
+                    <h4>Retro</h4>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
             </div>
-            <div class="timeline-event" onclick="location.href='page3.html'">
-                <span class="timeline-date">2024 - Now</span>
-                <span class="timeline-content">YNOV</span>
-                <img src="media\ynov.png">
+            <div class="column cars">
+                <div class="content">
+                    <img src="/w3images/cars2.jpg" alt="Car" style="width:100%">
+                    <h4>Fast</h4>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
             </div>
+            <div class="column cars">
+                <div class="content">
+                    <img src="/w3images/cars3.jpg" alt="Car" style="width:100%">
+                    <h4>Classic</h4>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
+            </div>
+
+            <div class="column people">
+                <div class="content">
+                    <img src="/w3images/people1.jpg" alt="Car" style="width:100%">
+                    <h4>Girl</h4>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
+            </div>
+            <div class="column people">
+                <div class="content">
+                    <img src="/w3images/people2.jpg" alt="Car" style="width:100%">
+                    <h4>Man</h4>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
+            </div>
+            <div class="column people">
+                <div class="content">
+                    <img src="/w3images/people3.jpg" alt="Car" style="width:100%">
+                    <h4>Woman</h4>
+                    <p>Lorem ipsum dolor..</p>
+                </div>
+            </div>
+<!-- END GRID -->
         </div>
     </section>
 
@@ -67,6 +114,6 @@
         <a href="mailto:naim.nshou@gmail.com">naim.nshou@gmail.com</a>
     </section>
 
-    <script src="frise.js"></script>
+    <script src="galerie.js"></script>
 </body>
 </html>
