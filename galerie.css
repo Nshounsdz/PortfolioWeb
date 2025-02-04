@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to top right, #606, #b90);
+    background: linear-gradient(to top right, #0a6, #156);
 }
 
 /* Navigation */
@@ -82,6 +82,13 @@ h1 {
 .content {
   background: linear-gradient(to top right, #950, #b90);
   padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.content img {
+    border-radius: 10%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* The "show" class is added to the filtered elements */
@@ -94,8 +101,10 @@ h1 {
   border: none;
   outline: none;
   padding: 16px 16px;
-  background: linear-gradient(to top right, #530, #950);
+  background: linear-gradient(to top left, #530, #950);
   cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 .btn:hover {
