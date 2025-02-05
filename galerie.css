@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to top left, #0a5, #252);
+    background: linear-gradient(to top left, #92b, #29b);
 }
 
 /* Navigation */
@@ -90,7 +90,7 @@ h1 {
 
 /* Content */
 .content {
-  background: linear-gradient(to top right, #0ca, #156);
+  background: linear-gradient(to top right, #083, #16a);
   padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
@@ -105,7 +105,8 @@ h1 {
 }
 
 .content:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  background: linear-gradient(to top right, #0ca, #156);
 }
 
 .content h4, 
@@ -152,7 +153,7 @@ h1 {
   border: none;
   outline: none;
   padding: 15px 15px;
-  background: linear-gradient(to top right, #095, #156);
+  background: linear-gradient(to top right, #083, #16a);
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
