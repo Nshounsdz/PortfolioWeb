@@ -107,8 +107,10 @@ h1 {
 }
 
 .content video {
-  height: 150px;
-  width: 200px;
+  padding: 5px;
+  height: 121px;
+  width: 225px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* The "show" class is added to the filtered elements */
