@@ -91,26 +91,55 @@ h1 {
 /* Content */
 .content {
   background: linear-gradient(to top right, #0ca, #156);
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   transition: transform 0.2s, background-color 0.2s;
+  height: 350px; /* Ajuste cette valeur selon tes besoins */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* Empêche le dépassement */
 }
 
 .content:hover {
   transform: scale(1.1);
 }
 
+.content h4, 
+.content p {
+  margin: 5px 0;
+  padding: 0 10px;
+  max-width: 100%;
+  word-wrap: break-word; /* Casse les mots longs */
+  overflow: hidden; /* Cache tout dépassement */
+  text-overflow: ellipsis; /* Ajoute "..." si le texte est trop long */
+  white-space: nowrap; /* Empêche les retours à la ligne */
+}
+
+.content h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.content p {
+  font-size: 0.7rem;
+  color: #ddd;
+}
+
 .content img {
-  border-radius: 10%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 200%;
+  max-height: 250px; /* Ajuste selon besoin */
+  object-fit: contain; /* Garde les proportions sans étirement */
 }
 
 .content video {
-  padding: 5px;
-  height: 121px;
-  width: 225px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 200%;
+  max-height: 250px; /* Ajuste selon besoin */
+  object-fit: cover;
 }
 
 /* The "show" class is added to the filtered elements */
@@ -145,7 +174,7 @@ h1 {
 
 
 section {
-    max-width: 800px;
+    max-width: 1500px;
     margin: 0 auto;
     text-align: center;
 }
