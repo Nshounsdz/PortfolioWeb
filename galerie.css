@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to top right, #0a6, #156);
+    background: linear-gradient(to top left, #fff, #252);
 }
 
 /* Navigation */
@@ -77,7 +77,7 @@ h1 {
 /* Create three equal columns that floats next to each other */
 .column {
   float: left;
-  width: 50%;
+  width: 33.33%;
   display: none; /* Hide all elements by default */
 }
 
@@ -91,7 +91,7 @@ h1 {
 /* Content */
 .content {
   background: linear-gradient(to top right, #0ca, #156);
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
 }
@@ -106,9 +106,8 @@ h1 {
 }
 
 .content video {
-  border-radius: 10%;
-  padding: 5px 5px;
-  max-width: 350px;
+  height: 150px;
+  width: 200px;
 }
 
 /* The "show" class is added to the filtered elements */
