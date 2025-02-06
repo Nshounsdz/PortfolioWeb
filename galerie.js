@@ -64,39 +64,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalVideo = document.getElementById("modalVideo");
     const modalCaption = document.getElementById("modalCaption");
     const closeBtn = document.querySelector(".close");
-    let currentPlayingVideo = null;
+    let currentPlayingVideo = null; // Pour stocker la vidéo miniature en lecture
 
-    // Fonction pour afficher les bons éléments
-    function filterSelection(category) {
-        const columns = document.querySelectorAll(".column");
+    // ✅ 1️⃣ Fonction pour afficher correctement les éléments lors du scroll
+    function revealOnScroll() {
+        let elements = document.querySelectorAll(".fade-in");
+        let windowHeight = window.innerHeight;
 
-        if (category === "all") {
-            columns.forEach(col => col.classList.add("show"));
-        } else {
-            columns.forEach(col => {
-                col.classList.remove("show");
-                if (col.classList.contains(category)) {
-                    col.classList.add("show");
-                }
-            });
-        }
+        elements.forEach(el => {
+            let elementTop = el.getBoundingClientRect().top;
+
+            if (elementTop < windowHeight - 50) { // Si l'élément est dans la vue
+                el.classList.add("visible");
+            }
+        });
     }
 
-    // Appliquer le filtre "all" au chargement pour éviter que les éléments ne disparaissent
-    filterSelection("all");
+    // ✅ 2️⃣ Appliquer l'effet fade-in sur le scroll
+    revealOnScroll();
+    window.addEventListener("scroll", revealOnScroll);
 
-    // Gestion des boutons de filtre
-    document.querySelectorAll("#myBtnContainer .btn").forEach(button => {
-        button.addEventListener("click", function () {
-            document.querySelectorAll("#myBtnContainer .btn").forEach(btn => btn.classList.remove("active"));
-            this.classList.add("active");
-
-            const category = this.getAttribute("onclick").match(/'([^']+)'/)[1];
-            filterSelection(category);
-        });
-    });
-
-    // Fonction pour ouvrir la modale avec le bon média
+    // ✅ 3️⃣ Fonction pour ouvrir la modale avec le bon média
     function openModal(mediaSrc, isVideo, title, description, originalVideo) {
         modal.style.display = "flex";
 
@@ -106,9 +94,10 @@ document.addEventListener("DOMContentLoaded", function () {
             modalImg.style.display = "none";
             modalVideo.play();
 
+            // ⛔ Met en pause la vidéo miniature AVANT d'ouvrir la modale
             if (originalVideo && !originalVideo.paused) {
                 originalVideo.pause();
-                currentPlayingVideo = originalVideo;
+                currentPlayingVideo = originalVideo; // Stocke la vidéo originale pour éviter qu'elle ne reprenne après
             }
         } else {
             modalImg.src = mediaSrc;
@@ -119,10 +108,10 @@ document.addEventListener("DOMContentLoaded", function () {
         modalCaption.innerHTML = `<strong>${title}</strong><br>${description}`;
     }
 
-    // Sélectionne toutes les boxes `.content`
+    // ✅ 4️⃣ Rendre toute la box `.content` cliquable
     document.querySelectorAll(".content").forEach(box => {
         box.addEventListener("click", function (event) {
-            event.preventDefault();
+            event.preventDefault(); // Empêche la lecture automatique des vidéos miniatures
 
             const img = this.querySelector("img");
             const video = this.querySelector("video");
@@ -140,11 +129,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Fermeture de la modale
+    // ✅ 5️⃣ Fonction pour fermer la modale proprement
     function closeModal() {
         modal.style.display = "none";
-        modalVideo.pause();
-        modalVideo.src = "";
+        modalVideo.pause(); // Met en pause la vidéo en grand
+        modalVideo.src = ""; // Réinitialise la source pour éviter la reprise automatique
+
+        // ⛔ Ne relance PAS la vidéo miniature après la fermeture
         currentPlayingVideo = null;
     }
 

@@ -219,6 +219,13 @@ h1 {
     cursor: pointer;
 }
 
+@media (max-width: 768px) {
+    .fade-in {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+}
+
 section {
     max-width: 1500px;
     margin: 0 auto;
