@@ -102,6 +102,7 @@ h1 {
   align-items: center;
   text-align: center;
   overflow: hidden; /* Empêche le dépassement */
+  min-height: 100px;
 }
 
 @media (max-width: 1024px) {
@@ -121,15 +122,17 @@ h1 {
   background: linear-gradient(to top right, #0ca, #156);
 }
 
-.content h4, 
+.content h4 {
+    font-size: 1rem; /* Taille du titre ajustée */
+    margin-bottom: 5px; /* Moins d’espace en bas */
+}
+
 .content p {
-  margin: 5px 0;
-  padding: 0 10px;
-  max-width: 100%;
-  word-wrap: break-word; /* Casse les mots longs */
-  overflow: hidden; /* Cache tout dépassement */
-  text-overflow: ellipsis; /* Ajoute "..." si le texte est trop long */
-  white-space: nowrap; /* Empêche les retours à la ligne */
+    font-size: 0.9rem; /* Réduire légèrement la taille */
+    line-height: 1.2; /* Réduire l’espacement des lignes */
+    margin: 2px 0; /* Ajustement des marges */
+    overflow-wrap: break-word; /* Évite les coupures trop larges */
+    text-align: center; /* Centrer le texte */
 }
 
 .content h4 {
