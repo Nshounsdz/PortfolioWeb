@@ -57,3 +57,26 @@ for (var i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.querySelector(".close");
+
+    document.querySelectorAll(".content img").forEach(img => {
+        img.addEventListener("click", function () {
+            modal.style.display = "flex"; // Affiche la modale
+            modalImg.src = this.src;
+        });
+    });
+
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none"; // Ferme la modale
+    });
+
+    modal.addEventListener("click", function (e) {
+        if (e.target !== modalImg) {
+            modal.style.display = "none"; // Ferme si on clique en dehors de l'image
+        }
+    });
+});
