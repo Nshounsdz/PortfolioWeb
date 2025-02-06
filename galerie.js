@@ -64,7 +64,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalVideo = document.getElementById("modalVideo");
     const modalCaption = document.getElementById("modalCaption");
     const closeBtn = document.querySelector(".close");
-    let currentPlayingVideo = null; // Stocke la vidéo qui était en lecture avant l'ouverture de la modale
+    let currentPlayingVideo = null;
+
+    // Fonction pour afficher les bons éléments
+    function filterSelection(category) {
+        const columns = document.querySelectorAll(".column");
+
+        if (category === "all") {
+            columns.forEach(col => col.classList.add("show"));
+        } else {
+            columns.forEach(col => {
+                col.classList.remove("show");
+                if (col.classList.contains(category)) {
+                    col.classList.add("show");
+                }
+            });
+        }
+    }
+
+    // Appliquer le filtre "all" au chargement pour éviter que les éléments ne disparaissent
+    filterSelection("all");
+
+    // Gestion des boutons de filtre
+    document.querySelectorAll("#myBtnContainer .btn").forEach(button => {
+        button.addEventListener("click", function () {
+            document.querySelectorAll("#myBtnContainer .btn").forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            const category = this.getAttribute("onclick").match(/'([^']+)'/)[1];
+            filterSelection(category);
+        });
+    });
 
     // Fonction pour ouvrir la modale avec le bon média
     function openModal(mediaSrc, isVideo, title, description, originalVideo) {
@@ -74,12 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
             modalVideo.src = mediaSrc;
             modalVideo.style.display = "block";
             modalImg.style.display = "none";
-            modalVideo.play(); // Lance la vidéo en grand
+            modalVideo.play();
 
-            // Met en pause la vidéo miniature AVANT que la modale ne s'affiche
             if (originalVideo && !originalVideo.paused) {
                 originalVideo.pause();
-                currentPlayingVideo = originalVideo; // Stocke la vidéo originale pour éviter qu'elle ne reprenne après
+                currentPlayingVideo = originalVideo;
             }
         } else {
             modalImg.src = mediaSrc;
@@ -93,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Sélectionne toutes les boxes `.content`
     document.querySelectorAll(".content").forEach(box => {
         box.addEventListener("click", function (event) {
-            event.preventDefault(); // Empêche la lecture de la vidéo en petit
+            event.preventDefault();
 
             const img = this.querySelector("img");
             const video = this.querySelector("video");
@@ -112,22 +141,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Fermeture de la modale
-    closeBtn.addEventListener("click", function () {
-        closeModal();
-    });
+    function closeModal() {
+        modal.style.display = "none";
+        modalVideo.pause();
+        modalVideo.src = "";
+        currentPlayingVideo = null;
+    }
 
+    closeBtn.addEventListener("click", closeModal);
     modal.addEventListener("click", function (e) {
         if (e.target !== modalImg && e.target !== modalVideo) {
             closeModal();
         }
     });
-
-    function closeModal() {
-        modal.style.display = "none";
-        modalVideo.pause(); // Met en pause la vidéo dans la modale
-        modalVideo.src = ""; // Vide la source pour éviter la reprise automatique
-
-        // Ne relance PAS la vidéo miniature après la fermeture
-        currentPlayingVideo = null;
-    }
 });
