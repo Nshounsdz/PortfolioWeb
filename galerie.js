@@ -59,24 +59,54 @@ for (var i = 0; i < btns.length; i++) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("imageModal");
+    const modal = document.getElementById("mediaModal");
     const modalImg = document.getElementById("modalImg");
+    const modalVideo = document.getElementById("modalVideo");
+    const modalCaption = document.getElementById("modalCaption");
     const closeBtn = document.querySelector(".close");
 
+    // Gestion des images
     document.querySelectorAll(".content img").forEach(img => {
         img.addEventListener("click", function () {
-            modal.style.display = "flex"; // Affiche la modale
+            modal.style.display = "flex";
             modalImg.src = this.src;
+            modalImg.style.display = "block";
+            modalVideo.style.display = "none";
+
+            // Récupère le titre et la description associés
+            let title = this.closest(".content").querySelector("h4")?.innerText || "";
+            let description = this.closest(".content").querySelector("p")?.innerText || "";
+            modalCaption.innerHTML = `<strong>${title}</strong><br>${description}`;
         });
     });
 
+    // Gestion des vidéos
+    document.querySelectorAll(".content video").forEach(video => {
+        video.addEventListener("click", function (e) {
+            e.preventDefault(); // Empêche la vidéo de démarrer en petit format
+            modal.style.display = "flex";
+            modalVideo.src = this.querySelector("source").src;
+            modalVideo.style.display = "block";
+            modalImg.style.display = "none";
+            modalVideo.play(); // Joue automatiquement la vidéo
+
+            // Récupère le titre et la description associés
+            let title = this.closest(".content").querySelector("h4")?.innerText || "";
+            let description = this.closest(".content").querySelector("p")?.innerText || "";
+            modalCaption.innerHTML = `<strong>${title}</strong><br>${description}`;
+        });
+    });
+
+    // Fermeture de la modale
     closeBtn.addEventListener("click", function () {
-        modal.style.display = "none"; // Ferme la modale
+        modal.style.display = "none";
+        modalVideo.pause(); // Met en pause la vidéo
     });
 
     modal.addEventListener("click", function (e) {
-        if (e.target !== modalImg) {
-            modal.style.display = "none"; // Ferme si on clique en dehors de l'image
+        if (e.target !== modalImg && e.target !== modalVideo) {
+            modal.style.display = "none";
+            modalVideo.pause(); // Met en pause la vidéo si elle est ouverte
         }
     });
 });
