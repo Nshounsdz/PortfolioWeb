@@ -64,49 +64,70 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalVideo = document.getElementById("modalVideo");
     const modalCaption = document.getElementById("modalCaption");
     const closeBtn = document.querySelector(".close");
+    let currentPlayingVideo = null; // Stocke la vidéo qui était en lecture avant l'ouverture de la modale
 
-    // Gestion des images
-    document.querySelectorAll(".content img").forEach(img => {
-        img.addEventListener("click", function () {
-            modal.style.display = "flex";
-            modalImg.src = this.src;
-            modalImg.style.display = "block";
-            modalVideo.style.display = "none";
+    // Fonction pour ouvrir la modale avec le bon média
+    function openModal(mediaSrc, isVideo, title, description, originalVideo) {
+        modal.style.display = "flex";
 
-            // Récupère le titre et la description associés
-            let title = this.closest(".content").querySelector("h4")?.innerText || "";
-            let description = this.closest(".content").querySelector("p")?.innerText || "";
-            modalCaption.innerHTML = `<strong>${title}</strong><br>${description}`;
-        });
-    });
-
-    // Gestion des vidéos
-    document.querySelectorAll(".content video").forEach(video => {
-        video.addEventListener("click", function (e) {
-            e.preventDefault(); // Empêche la vidéo de démarrer en petit format
-            modal.style.display = "flex";
-            modalVideo.src = this.querySelector("source").src;
+        if (isVideo) {
+            modalVideo.src = mediaSrc;
             modalVideo.style.display = "block";
             modalImg.style.display = "none";
-            modalVideo.play(); // Joue automatiquement la vidéo
+            modalVideo.play(); // Lance la vidéo en grand
 
-            // Récupère le titre et la description associés
-            let title = this.closest(".content").querySelector("h4")?.innerText || "";
-            let description = this.closest(".content").querySelector("p")?.innerText || "";
-            modalCaption.innerHTML = `<strong>${title}</strong><br>${description}`;
+            // Met en pause la vidéo miniature AVANT que la modale ne s'affiche
+            if (originalVideo && !originalVideo.paused) {
+                originalVideo.pause();
+                currentPlayingVideo = originalVideo; // Stocke la vidéo originale pour éviter qu'elle ne reprenne après
+            }
+        } else {
+            modalImg.src = mediaSrc;
+            modalImg.style.display = "block";
+            modalVideo.style.display = "none";
+        }
+
+        modalCaption.innerHTML = `<strong>${title}</strong><br>${description}`;
+    }
+
+    // Sélectionne toutes les boxes `.content`
+    document.querySelectorAll(".content").forEach(box => {
+        box.addEventListener("click", function (event) {
+            event.preventDefault(); // Empêche la lecture de la vidéo en petit
+
+            const img = this.querySelector("img");
+            const video = this.querySelector("video");
+            const title = this.querySelector("h4")?.innerText || "";
+            const description = this.querySelector("p")?.innerText || "";
+
+            if (img) {
+                openModal(img.src, false, title, description, null);
+            } else if (video) {
+                const videoSrc = video.querySelector("source")?.src;
+                if (videoSrc) {
+                    openModal(videoSrc, true, title, description, video);
+                }
+            }
         });
     });
 
     // Fermeture de la modale
     closeBtn.addEventListener("click", function () {
-        modal.style.display = "none";
-        modalVideo.pause(); // Met en pause la vidéo
+        closeModal();
     });
 
     modal.addEventListener("click", function (e) {
         if (e.target !== modalImg && e.target !== modalVideo) {
-            modal.style.display = "none";
-            modalVideo.pause(); // Met en pause la vidéo si elle est ouverte
+            closeModal();
         }
     });
+
+    function closeModal() {
+        modal.style.display = "none";
+        modalVideo.pause(); // Met en pause la vidéo dans la modale
+        modalVideo.src = ""; // Vide la source pour éviter la reprise automatique
+
+        // Ne relance PAS la vidéo miniature après la fermeture
+        currentPlayingVideo = null;
+    }
 });
