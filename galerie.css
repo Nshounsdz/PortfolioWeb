@@ -104,6 +104,18 @@ h1 {
   overflow: hidden; /* Empêche le dépassement */
 }
 
+@media (max-width: 1024px) {
+    .column {
+        width: 50%; /* 2 colonnes sur tablette */
+    }
+}
+
+@media (max-width: 768px) {
+    .column {
+        width: 100%; /* 1 colonne sur téléphone */
+    }
+}
+
 .content:hover {
   transform: scale(1.05);
   background: linear-gradient(to top right, #0ca, #156);
@@ -223,6 +235,7 @@ h1 {
     .fade-in {
         opacity: 1 !important;
         transform: translateY(0) !important;
+        transition: none !important;
     }
 }
 
