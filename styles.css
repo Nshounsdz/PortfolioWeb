@@ -4,6 +4,13 @@ body {
     background: linear-gradient(to top right, #203, #053);
     color: #fff;
     overflow-x: hidden;
+    background-size: cover; /* Ajuste le fond pour couvrir toute la page */
+    background-repeat: no-repeat; /* Empêche la répétition du fond */
+    background-attachment: fixed; /* Fixe le fond même si la page est petite */
+}
+
+html, body {
+    min-height: 100vh; /* Assure que la page fait au moins la hauteur de l'écran */
 }
 
 nav {

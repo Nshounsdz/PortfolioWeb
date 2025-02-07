@@ -1,8 +1,17 @@
 /* Styles généraux */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to top left, #92b, #29b);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  color: #333333;
+  padding: 20px;
+  background-size: cover; /* Ajuste le fond pour couvrir toute la page */
+  background-repeat: no-repeat; /* Empêche la répétition du fond */
+  background-attachment: fixed; /* Fixe le fond même si la page est petite */
+}
+
+html, body {
+    min-height: 100vh; /* Assure que la page fait au moins la hauteur de l'écran */
 }
 
 /* Navigation */
@@ -34,12 +43,6 @@ nav a:hover {
 
 *{
   box-sizing: border-box;
-}
-
-body {
-  background-color: #f1f1f1;
-  padding: 20px;
-  font-family: Arial;
 }
 
 #titre h2 {
@@ -90,10 +93,10 @@ h1 {
 
 /* Content */
 .content {
-  background: linear-gradient(to top right, #083, #16a);
+  background: linear-gradient(135deg, #e3eaf4, #cfd9df);
+  border-radius: 15px;
   padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
   transition: transform 0.2s, background-color 0.2s;
   height: 350px; /* Ajuste cette valeur selon tes besoins */
   display: flex;
@@ -119,7 +122,7 @@ h1 {
 
 .content:hover {
   transform: scale(1.05);
-  background: linear-gradient(to top right, #0ca, #156);
+  background: #d17b49;
 }
 
 .content h4 {
@@ -142,7 +145,7 @@ h1 {
 
 .content p {
   font-size: 0.7rem;
-  color: #ddd;
+  color: ##3b3b3b;
 }
 
 .content img {
@@ -163,12 +166,20 @@ h1 {
   display: block;
 }
 
+button {
+    background: #4a90e2;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
 /* Style the buttons */
 .btn {
   border: none;
   outline: none;
   padding: 15px 15px;
-  background: linear-gradient(to top right, #083, #16a);
+  background: #d17b49;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -176,12 +187,12 @@ h1 {
 }
 
 .btn:hover {
-  background: linear-gradient(to top right, #0ca, #156);
+  background: #d9ab6c;
   transform: scale(1.1);
 }
 
 .btn.active {
-  background: linear-gradient(to top right, #0ca, #156);
+  background: #d9ab6c;
   color: white;
   scale: 1.1;
   padding: 20px 20px;
