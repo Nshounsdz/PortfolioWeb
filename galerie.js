@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalVideo = document.getElementById("modalVideo");
     const modalCaption = document.getElementById("modalCaption");
     const closeBtn = document.querySelector(".close");
-    let currentPlayingVideo = null; // Pour stocker la vidéo miniature en lecture
+    let currentPlayingVideo = null; // Stocke la vidéo miniature en lecture
 
     // ✅ 1️⃣ Fonction pour afficher correctement les éléments lors du scroll
     function revealOnScroll() {
@@ -73,8 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         elements.forEach(el => {
             let elementTop = el.getBoundingClientRect().top;
-
-            if (elementTop < windowHeight - 50) { // Si l'élément est dans la vue
+            if (elementTop < windowHeight - 50) { // Si l'élément est visible
                 el.classList.add("visible");
             }
         });
@@ -84,8 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
     revealOnScroll();
     window.addEventListener("scroll", revealOnScroll);
 
-    // ✅ 3️⃣ Fonction pour ouvrir la modale avec le bon média
-    function openModal(mediaSrc, isVideo, title, description, originalVideo) {
+    // ✅ 3️⃣ Fonction pour ouvrir la modale avec le bon média et la bonne description
+    function openModal(mediaSrc, isVideo, title, originalBox, originalVideo) {
         modal.style.display = "flex";
 
         if (isVideo) {
@@ -97,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // ⛔ Met en pause la vidéo miniature AVANT d'ouvrir la modale
             if (originalVideo && !originalVideo.paused) {
                 originalVideo.pause();
-                currentPlayingVideo = originalVideo; // Stocke la vidéo originale pour éviter qu'elle ne reprenne après
+                currentPlayingVideo = originalVideo;
             }
         } else {
             modalImg.src = mediaSrc;
@@ -105,7 +104,21 @@ document.addEventListener("DOMContentLoaded", function () {
             modalVideo.style.display = "none";
         }
 
-        modalCaption.innerHTML = `<strong>${title}</strong><br>${description}`;
+        // ✅ Crée un conteneur pour le texte et ajoute le titre
+        const descriptionContainer = document.createElement("div");
+        descriptionContainer.innerHTML = `<strong>${title}</strong>`;
+
+        // ✅ Récupère SEULEMENT les <p> de la box cliquée et les ajoute
+        const allParagraphs = originalBox.querySelectorAll("p");
+        allParagraphs.forEach(p => {
+            const newP = document.createElement("p");
+            newP.textContent = p.textContent;
+            descriptionContainer.appendChild(newP);
+        });
+
+        // ✅ Met à jour la modale avec le bon texte
+        modalCaption.innerHTML = "";
+        modalCaption.appendChild(descriptionContainer);
     }
 
     // ✅ 4️⃣ Rendre toute la box `.content` cliquable
@@ -116,14 +129,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const img = this.querySelector("img");
             const video = this.querySelector("video");
             const title = this.querySelector("h4")?.innerText || "";
-            const description = this.querySelector("p")?.innerText || "";
 
             if (img) {
-                openModal(img.src, false, title, description, null);
+                openModal(img.src, false, title, this, null);
             } else if (video) {
                 const videoSrc = video.querySelector("source")?.src;
                 if (videoSrc) {
-                    openModal(videoSrc, true, title, description, video);
+                    openModal(videoSrc, true, title, this, video);
                 }
             }
         });
@@ -132,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅ 5️⃣ Fonction pour fermer la modale proprement
     function closeModal() {
         modal.style.display = "none";
-        modalVideo.pause(); // Met en pause la vidéo en grand
+        modalVideo.pause();
         modalVideo.src = ""; // Réinitialise la source pour éviter la reprise automatique
 
         // ⛔ Ne relance PAS la vidéo miniature après la fermeture

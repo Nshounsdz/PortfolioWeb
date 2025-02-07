@@ -141,6 +141,7 @@ h1 {
 .content h4 {
   font-size: 1.2rem;
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .content p {
@@ -233,6 +234,23 @@ button {
     text-align: center;
     font-weight: bold;
 }
+
+#modalCaption strong {
+    font-size: 2rem; /* ✅ Titre plus grand */
+    font-weight: bold; /* ✅ Met le titre en gras */
+    display: block; /* ✅ Assure qu'il soit bien séparé des paragraphes */
+    margin-bottom: 10px; /* ✅ Espacement entre le titre et le texte */
+    text-align: center; /* ✅ Centre le titre */
+    text-decoration: underline;
+}
+
+#modalCaption p {
+    font-size: 1rem; /* ✅ Texte légèrement plus petit */
+    font-weight: normal; /* ✅ Texte normal */
+    text-align: center; /* ✅ Centre le texte */
+    margin: 5px 0; /* ✅ Espacement entre les paragraphes */
+}
+
 
 /* Style du bouton de fermeture */
 .close {
