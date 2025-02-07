@@ -126,19 +126,7 @@ h1 {
 }
 
 .content h4 {
-    font-size: 1rem; /* Taille du titre ajustée */
-    margin-bottom: 5px; /* Moins d’espace en bas */
-}
-
-.content p {
-    font-size: 0.9rem; /* Réduire légèrement la taille */
-    line-height: 1.2; /* Réduire l’espacement des lignes */
-    margin: 2px 0; /* Ajustement des marges */
-    overflow-wrap: break-word; /* Évite les coupures trop larges */
-    text-align: center; /* Centrer le texte */
-}
-
-.content h4 {
+  margin-bottom: 5px; /* Moins d’espace en bas */
   font-size: 1.2rem;
   font-weight: bold;
   text-decoration: underline;
@@ -147,6 +135,11 @@ h1 {
 .content p {
   font-size: 0.7rem;
   color: ##3b3b3b;
+  line-height: 1.2; /* Réduire l’espacement des lignes */
+  margin: 2px 0; /* Ajustement des marges */
+  overflow-wrap: break-word; /* Évite les coupures trop larges */
+  text-align: center; /* Centrer le texte */
+  font-style: italic;
 }
 
 .content img {
@@ -242,6 +235,7 @@ button {
     margin-bottom: 10px; /* ✅ Espacement entre le titre et le texte */
     text-align: center; /* ✅ Centre le titre */
     text-decoration: underline;
+    font-weight: bold;
 }
 
 #modalCaption p {
@@ -249,6 +243,7 @@ button {
     font-weight: normal; /* ✅ Texte normal */
     text-align: center; /* ✅ Centre le texte */
     margin: 5px 0; /* ✅ Espacement entre les paragraphes */
+    font-style: italic;
 }
 
 
