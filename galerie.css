@@ -4,7 +4,7 @@ body {
   font-family: Arial, sans-serif;
   background-image: url("media/bg.png");
   position: relative;
-  color: #bbb;
+  color: #ddd;
   padding: 20px;
   background-size: cover; /* Ajuste le fond pour couvrir toute la page */
   background-repeat: no-repeat; /* Empêche la répétition du fond */
@@ -107,7 +107,7 @@ h1 {
 
 /* Content */
 .content {
-  background: linear-gradient(135deg, #e3eaf4, #cfd9df);
+  background-image: linear-gradient(to top left, #3C0F0A, #B54D39);
   border-radius: 15px;
   padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -136,7 +136,8 @@ h1 {
 
 .content:hover {
   transform: scale(1.05);
-  background: #d17b49;
+  background-image: linear-gradient(to top left, #B54D39, #FEDE71);
+  color: #000;
 }
 
 .content h4 {
@@ -148,7 +149,6 @@ h1 {
 
 .content p {
   font-size: 0.7rem;
-  color: ##3b3b3b;
   line-height: 1.2; /* Réduire l’espacement des lignes */
   margin: 2px 0; /* Ajustement des marges */
   overflow-wrap: break-word; /* Évite les coupures trop larges */
@@ -187,7 +187,7 @@ button {
   border: none;
   outline: none;
   padding: 15px 15px;
-  background: #4A919E;
+  background-image: linear-gradient(to top left, #0E1B28, #20416A);
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -195,12 +195,12 @@ button {
 }
 
 .btn:hover {
-  background: #B6D8F2;
-  transform: scale(1.1);
+  background-image: linear-gradient(to top left, #20416A, #3FBEDE);
+  transform: scale(1.05);
 }
 
 .btn.active {
-  background: #d9ab6c;
+  background-image: linear-gradient(to top left, #20416A, #3FBEDE);
   color: white;
   scale: 1.1;
   padding: 20px 20px;
