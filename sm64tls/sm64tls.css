@@ -5,6 +5,7 @@ body {
     background: url("bg.png") no-repeat center fixed;
     background-size: cover;
     color: #fff;
+    font-size: 20px;
 }
 
 header {
@@ -13,40 +14,83 @@ header {
     padding: 20px;
 }
 
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.flex-container > div {
-  
+
+.button {
+  border: none;
+  color: white;
+  padding: 40px 55px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 32px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
-.content1 {
-    background-color: #522;
-    width: 300px;
-    margin: 10px;
-    text-align: center;
-    line-height: 75px;
-    font-size: 30px;
-    border: 10px solid #f33;
+
+.button1 {
+  background-color: #35ca54;
+  color: black;
+  border: 22px outset;
+  border-color: #23b842;
 }
-.content2 {
-    background-color: #522;
-    width: 300px;
-    margin: 10px;
-    text-align: center;
-    line-height: 75px;
-    font-size: 30px;
-    border: 10px solid #f33;
+
+.button1:hover {
+  background-color: #35ca54;
+  color: #fff;
+  border-color: #23b842;
+  transform: scale(1.1);
 }
-.content:hover {
-  transform: scale(1.05);
+.button2 {
+  background-color: #2445be;
+  color: black;
+  border: 22px outset;
+  border-color: #1333ad;
+}
+
+.button2:hover {
+  background-color: #2445be;
+  color: #fff;
+  border-color: #1333ad;
+  transform: scale(1.1);
+}
+.button3 {
+  background-color: #aa1921;
+  color: black;
+  border: 22px outset;
+  border-color: #991711;
+}
+
+.button3:hover {
+  background-color: #aa1921;
+  color: #fff;
+  border-color: #991711;
+  transform: scale(1.1);
 }
 
 main {
     width: 80%;
     margin: 20px auto;
+}
+
+h1 {
+    font-size: 50px;
 }
 
 .center-text {
@@ -93,4 +137,11 @@ main {
 .large-image p {
     font-size: 18px;
     color: #666;
+}
+
+section, section video {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
 }
