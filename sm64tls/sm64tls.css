@@ -139,9 +139,11 @@ h1 {
     color: #666;
 }
 
-section, section video {
-    max-width: 800px;
-    margin: 0 auto;
+.center-video {
+    max-width: 100%;
+    align-items: center;
+    margin-bottom: 30px;
     text-align: center;
     justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
