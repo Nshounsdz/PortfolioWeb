@@ -78,22 +78,22 @@ header {
 }
 
 .button3:hover {
-  background-color: #aa1921;
+  background-color: #a41921;
   color: #fff;
   border-color: #991711;
   transform: scale(1.1);
 }
 .button4 {
-  background-color: #aa1921;
+  background-color: #981598;
   color: black;
   border: 22px outset;
-  border-color: #991711;
+  border-color: #781598;
 }
 
 .button4:hover {
-  background-color: #aa1921;
+  background-color: #981598;
   color: #fff;
-  border-color: #991711;
+  border-color: #781598;
   transform: scale(1.1);
 }
 
