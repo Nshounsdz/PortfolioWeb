@@ -83,6 +83,19 @@ header {
   border-color: #991711;
   transform: scale(1.1);
 }
+.button4 {
+  background-color: #aa1921;
+  color: black;
+  border: 22px outset;
+  border-color: #991711;
+}
+
+.button4:hover {
+  background-color: #aa1921;
+  color: #fff;
+  border-color: #991711;
+  transform: scale(1.1);
+}
 
 main {
     width: 80%;
@@ -146,4 +159,27 @@ h1 {
     text-align: center;
     justify-content: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.copyrights {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+    justify-content: center;
+    color: gray;
+}
+
+.text-image-credits img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.text-image-credits {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    font-size: 16px;
 }
