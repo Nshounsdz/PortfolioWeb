@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="sm64tls.css">
+</head>
+<body>
+    <header class="fade-in">
+        <h1>Super Mario 64: The Lost Stars</h1>
+        <div class="flex-container">
+            <div class="content1">
+                <a href="#histoire">
+                    <button class="button button1"><i>Histoire du jeu</i></button>
+                </a>
+            </div>
+            <div class="content2">
+                <a href="#dev">
+                    <button class="button button2"><i>Développement</i></button>
+                </a>
+            </div>
+            <div class="content3">
+                <a href="#gameplay">
+                    <button class="button button3"><i>Gameplay</i></button>
+                </a>
+            </div>
+            <div class="content4">
+                <a href="#credits">
+                    <button class="button button4"><i>Crédits</i></button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <hr>
+
+    <main class="fade-in">
+        <section id="histoire" class="center-text">
+            <h1>Histoire du jeu:</h1>
+        </section>
+
+        <section class="center-text">
+            <p><b>Super Mario 64 : The Lost Stars</b>, c'est mes premier pas vers le monde du développement de jeux vidéos. Graçe à ce projet, j'ai pu me confronter à des situations de développement d'un jeu de platforme, ainsi que les différentes problématiques qui viennet avec.</p>
+        </section>
+
+        <section class="text-image">
+            <img src="media\screen1.png" alt="Description de l'image">
+            <p>L'histoire du jeu ce déroule après les évènement du jeu Super Mario 64. Ou Mario doit aller récupérer des étoiles que Bowser avait cachées afin de récupérer ses pouvoirs et domminer le royaume Champignon.</p>
+        </section>
+
+        <section class="text-image reverse">
+            <p>Mario devra parcourir de nouveaux mondes dans lequels il devra retrouver les étoiles cachés afin de trouver Bowser et mettre fin à ses sombres élucubrations.</p>
+            <img src="media\screen2.png" alt="Description de l'image">
+        </section>
+
+        <section class="text-image right">
+            <p>Du niveau de plaine, en passant par les fonds marins, et jusqu'à aller dans l'espace, le jeu propose 4 nouveaux mondes à parcourir et 24 nouvelles étoiles de puissance à trouver!</p>
+            <img src="media\screen3.png" alt="Image description">
+        </section>
+
+        <section class="large-image">
+            <img src="media\intro.png" alt="Grande image">
+            <h2>Super Mario 64 : The Lost Stars</h2>
+        </section>
+    </main>
+
+    <hr>
+
+    <main class="fade-in">
+        <section id="dev" class="center-text">
+            <h1>Développement:</h1>
+        </section>
+
+        <section class="center-text">
+            <p>Le développement du jeu m'a permis de comprendre les enjeux de créer un jeu de platforme en 3 dimensions. J'ai apris plusieurs notions de level design, comme comment créer un niveau intéressant à parcourir, où et comment placer les obstacles, les bonus...</p>
+        </section>
+
+        <section class="center-text">
+            <p>Comme préciser plus tôt, SM64: The Lost Stars est une rom hack. Une version modifiée de Super Mario 64. L'objectif est de reprendre la base du jeu (les mécaniques, la physique, l'univers...) et recréer une nouvelle expérience de jeu basé sur l'original. Pour modifier le jeu de base, j'ai du utiliser différents outils:</p>
+        </section>
+
+        <section class="text-image">
+            <img src="media\sketchuplogo.png" alt="Description de l'image">
+            <p><b>SketchUp 2017:</b> un logiciel de modélisation 3D, il me pemettait de modéliser et texturer les niveaux avant de les exporter en .OBJ.</p>
+        </section>
+
+        <section class="text-image">
+            <img src="media\sm64lilogo.png" alt="Description de l'image">
+            <p><b>SM64 Level Importer:</b> Le logiciel d'importation. Il fait la passerelle entre SketchUp et Super Mario 64. Il permet d'importer des niveaux en format .OBJ ainsi que les textures en remplaçant un niveau déjà existant. Il permet aussi d'atribuer les ennemies du niveau, la skybox ainsi que la musique. Il permet également de donner des propriétées aux textures du niveau (faire en sorte qu'une texture soit reconnue comme de la lave, de l'eau, du poison...) ainsi que de générer du mouvement dans la texture.</p>
+        </section>
+
+        <section class="text-image">
+            <img src="media\TT64logo.png" alt="Description de l'image">
+            <p><b>Toad's Tool 64:</b> Le logiciel de gestion de niveaux. C'est ce logiciel qui permet de positioner les éléments qui composent le niveau: Les étoiles de puissances (ainsi que leur ordre), les enemies, les boss, les power up, les collectibles etc... Il permet aussi de modifier les éléments HUD du jeu, comme la barre d'énergie, les logos (tête de Mario, compteur d'étoiles...), ainsi que des textures d'objets, comme les visages des ennemies, de Mario...</p>
+        </section>
+
+        <section class="center-text">
+            <p>La combinaison de ses trois outils permet de créer un niveau complet. Le workflow de développement est de:</p>
+        </section>
+
+        <section class="text-image">
+            <img src="media\sketchup.png" alt="Description de l'image">
+            <p>Commencer par modéliser, puis texturer le niveau dans SketchUp,</p>
+        </section>
+
+        <section class="text-image reverse">
+            <p>Importer le niveau dans le jeu, attribuer les ennemies, la musique, donner aux textures les bonnes propriétées, et enfin choisir une skybox en liens avec l'univers du niveau,</p>
+            <img src="media\sm64li.png" alt="Description de l'image">
+        </section>
+
+        <section class="text-image">
+            <img src="media\tt64.png" alt="Description de l'image">
+            <p>Enfin, on fini par passer sur Toad's Tool 64, pour poser les différents éléments de gameplay et finaliser le level design.</p>
+        </section>
+
+        <section class="large-image">
+            <img src="media\screen2.png" alt="Grande image">
+            <h2>Et pour finir, tester et corriger les problèmes !</h2>
+        </section>
+    </main>
+
+    <hr>
+
+    <main class="fade-in">
+        <section id="gameplay" class="center-text">
+            <h1>Gameplay:</h1>
+        </section>
+
+        <section class="center-video">
+            <video controls>
+                <source src="media\Portfolio_Naim_Ben_Amar.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture vidéo.
+            </video>
+        </section>
+    </main>
+
+    <hr>
+
+    <main class="fade-in">
+        <section id="credits" class="center-text">
+            <h1>Crédits:</h1>
+        </section>
+
+        <section class="text-image-credits">
+            <img src="media\sketchuplogo.png" alt="Description de l'image">
+            <p><b>SketchUp 2017:</b> Trimble</p>
+        </section>
+
+        <section class="text-image-credits">
+            <img src="media\logosm64li.png" alt="Description de l'image">
+            <p><b>SM64 Level Importer:</b> PablosCorner, Skelux</p>
+        </section>
+
+        <section class="text-image-credits">
+            <img src="media\logott64.png" alt="Description de l'image">
+            <p><b>Toad's Tool 64:</b> VL-Tone, Skelux.</p>
+        </section>
+
+        <section class="copyrights">
+          <p>Super Mario™ est une licence appartenant à Nintendo ®. Super Mario 64™ est un jeu créer, éditer et publier par Nintendo ®. SM64: The Lost Stars est une rom hack réalisé par moi-même à but non lucratif. SM64: The Lost Stars n'est pas partagable ou téléchargable sur Internet et ne le sera jamais. Tout les droits reviennent à Nintendo of America ® ainsi que Nintendo Japan ®.</p>  
+        </section>
+        
+    </main>
+
+    <script src="sm64tls.js"></script>
+</body>
+</html>
