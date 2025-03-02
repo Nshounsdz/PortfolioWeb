@@ -19,6 +19,17 @@ header {
     border-bottom: 5px solid #FFD700;
 }
 
+footer {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    text-decoration: underline;
+    font-style: italic;
+    text-shadow: 1px 1px 10px black, 0 0 1em black, 0 0 5em black;
+    background: rgba(0, 0, 0, 0.6);
+    border-top: 5px solid #FFD700;
+}
+
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -79,6 +90,13 @@ section {
 }
 
 .text-image {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.text-image-credits {
     display: flex;
     align-items: center;
     gap: 20px;
