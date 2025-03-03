@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="sm64tls.css">
 </head>
 <body>
+    <audio id="background-music" loop>
+        <source src="media/mha.mp3" type="audio/mp3">
+        Votre navigateur ne supporte pas l'élément audio.
+    </audio>
+
     <header class="fade-in">
         <h1>Super Mario 64: The Lost Stars</h1>
         <nav class="flex-container">
@@ -16,6 +21,16 @@
             <a href="#credits"><button class="button button4">Crédits</button></a>
         </nav>
     </header>
+
+    <div id="music-popup" class="music-popup" onmouseleave="setTimeout(hidePopup, 3000)">
+        🎵 Activer la musique ?
+        <button onclick="playMusic()">Oui</button>
+        <button id="toggle-music" onclick="toggleMusic()">Non</button>
+        <div id="volume-control" class="volume-slider">
+            🔊 Volume : <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5" onchange="adjustVolume(this.value)">
+        </div>
+    </div>
+    <button id="toggle-popup" class="toggle-popup-button" onclick="showPopup()">🎵 Musique</button>
 
     <div class="fade-in">
         <div class="styled-separator"></div>

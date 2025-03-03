@@ -41,6 +41,60 @@ footer {
     transform: translateY(0);
 }
 
+.music-popup {
+    position: fixed;
+    top: 20px;
+    right: -300px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: right 0.5s ease-in-out;
+}
+.music-popup.show {
+    right: 20px;
+}
+.music-popup button {
+    background: #FFD700;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.music-popup button:hover {
+    background: #FFC107;
+}
+.volume-slider {
+    display: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+.volume-slider input {
+    width: 100px;
+}
+.toggle-popup-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #FFD700;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    display: none;
+}
+
 .flex-container {
     display: flex;
     flex-wrap: wrap;
