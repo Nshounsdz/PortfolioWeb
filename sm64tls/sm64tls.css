@@ -6,6 +6,11 @@ body {
     background-size: cover;
     color: #fff;
     font-size: 20px;
+    cursor: url('media/mouse/hand_open.rgba16.png'), auto;
+}
+
+a {
+    cursor: url('media/mouse/hand_open.rgba16.png'), pointer;
 }
 
 header {
@@ -45,34 +50,38 @@ footer {
     position: fixed;
     top: 20px;
     right: -300px;
-    background: rgba(0, 0, 0, 0.8);
+    background: linear-gradient(to bottom, #FFD700, #FF4500);
     color: white;
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    box-shadow: 4px 4px 0px #000;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    border: 3px solid #B22222;
+    font-family: 'Press Start 2P', cursive;
     transition: right 0.5s ease-in-out;
 }
 .music-popup.show {
     right: 20px;
 }
 .music-popup button {
-    background: #FFD700;
-    border: none;
+    background: #1E90FF;
+    color: white;
+    border: 3px solid #104E8B;
     padding: 10px 15px;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
+    box-shadow: 3px 3px 0px #000;
+    font-family: 'Press Start 2P', cursive;
 }
 .music-popup button:hover {
-    background: #FFC107;
+    background: #00BFFF;
 }
 .volume-slider {
-    display: none;
     width: 100%;
     text-align: center;
     margin-top: 10px;

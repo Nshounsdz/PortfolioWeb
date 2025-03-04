@@ -32,27 +32,46 @@ function scrollToTop() {
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
         document.getElementById("music-popup").classList.add("show");
-        setTimeout(hidePopup, 10000);
+        document.getElementById("volume-control").style.display = "block";
     }, 1000);
+});
+
+let hidePopupTimeout;
+
+function startHidePopupTimer() {
+    hidePopupTimeout = setTimeout(hidePopup, 10000);
+}
+
+function cancelHidePopupTimer() {
+    clearTimeout(hidePopupTimeout);
+}
+
+document.getElementById("music-popup").addEventListener("mouseleave", startHidePopupTimer);
+document.getElementById("music-popup").addEventListener("mouseenter", cancelHidePopupTimer);
+
+document.getElementById("toggle-popup").addEventListener("click", function() {
+    showPopup();
+    cancelHidePopupTimer();
 });
 
 function playMusic() {
     const music = document.getElementById("background-music");
     music.volume = 0.5;
     music.play().catch(error => console.log("Lecture bloquée :", error));
-    document.getElementById("volume-control").style.display = "block";
-    document.getElementById("toggle-music").textContent = "Stop";
+    const playButton = document.querySelector("#music-popup button:first-of-type");
+    playButton.textContent = "Stop";
+    playButton.setAttribute("onclick", "toggleMusic()")
 }
 
 function toggleMusic() {
     const music = document.getElementById("background-music");
-    const button = document.getElementById("toggle-music");
+    const button = document.querySelector("#music-popup button:first-of-type");
     if (music.paused) {
         music.play();
         button.textContent = "Stop";
     } else {
         music.pause();
-        button.textContent = "Reprendre";
+        button.textContent = "Play";
     }
 }
 
@@ -69,3 +88,22 @@ function showPopup() {
     document.getElementById("music-popup").classList.add("show");
     document.getElementById("toggle-popup").style.display = "none";
 }
+
+const body = document.body;
+
+// Variable pour stocker l'état du clic
+let isClicked = false;
+
+// Événement pour détecter le clic gauche
+body.addEventListener('mousedown', () => {
+    if (event.button === 0) { // 0 pour le clic gauche
+        isClicked = true;
+        body.style.cursor = 'url("media/mouse/hand_closed.rgba16.png"), auto'; // Curseur personnalisé pendant le clic
+    }
+});
+
+// Événement pour détecter la fin du clic
+body.addEventListener('mouseup', () => {
+    isClicked = false;
+    body.style.cursor = 'url("media/mouse/hand_open.rgba16.png"), auto'; // Retour au curseur par défaut après le relâchement
+});
