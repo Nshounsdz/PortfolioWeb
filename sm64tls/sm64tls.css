@@ -376,7 +376,7 @@ section {
 
     /* 📌 Pop-up de musique */
     .music-popup {
-        width: 80%;
+        width: 50%;
         right: -100%; /* Cacher complètement sur mobile */
     }
 
