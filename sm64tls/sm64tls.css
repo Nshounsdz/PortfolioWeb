@@ -241,7 +241,18 @@ section {
 }
 
 .center-video {
-    text-align: center;
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Taille max sur écran large */
+    margin: 0 auto;
+}
+
+/* Vidéo responsive */
+.center-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px; /* Coins arrondis pour un look plus propre */
 }
 
 .copyrights {
@@ -296,4 +307,97 @@ section {
     transform: translate(-50%, -50%);
     opacity: 1;
     transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+
+/* 📱🔹🔸 RESPONSIVE DESIGN 🔸🔹📱 */
+@media screen and (max-width: 768px) {
+    /* 📜 Adapter le texte */
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    /* 📦 Centrer le contenu */
+    main {
+        width: 90%;
+    }
+
+    /* 📸 Ajuster les images */
+    .text-image {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .text-image img {
+        width: 100%;
+        max-width: 250px; /* Taille réduite sur mobile */
+    }
+
+    /* 📜 Ajuster les sections */
+    section {
+        padding: 20px;
+    }
+
+    /* 📌 Pop-up de musique */
+    .music-popup {
+        width: 80%;
+        right: -100%; /* Cacher complètement sur mobile */
+    }
+
+    .music-popup.show {
+        right: 10%;
+    }
+
+    /* 📌 Centrer les boutons */
+    .button {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+
+    /* 🎵 Réduire le bouton Musique */
+    .toggle-popup-button {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    /* 📌 Ajuster le bouton "Retour en haut" */
+    #topButton {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+
+    .center-video {
+        max-width: 100%;
+        padding: 0 10px; /* Ajoute un peu d'espace sur les bords */
+    }
+}
+
+/* 🖼️ Pour les très petits écrans (téléphones) */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .button {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    .music-popup {
+        width: 90%;
+        right: -110%;
+    }
+
+    .music-popup.show {
+        right: 5%;
+    }
 }
