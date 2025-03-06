@@ -241,18 +241,19 @@ section {
 }
 
 .center-video {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 800px; /* Taille max sur écran large */
-    margin: 0 auto;
+    max-width: 800px; /* Taille max sur PC */
+    margin: 0 auto; /* Centre sur écran large */
 }
 
-/* Vidéo responsive */
 .center-video video {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 10px; /* Coins arrondis pour un look plus propre */
+    border-radius: 10px;
 }
 
 .copyrights {
@@ -312,9 +313,15 @@ section {
 
 /* 📱🔹🔸 RESPONSIVE DESIGN 🔸🔹📱 */
 @media screen and (max-width: 768px) {
-    /* 📜 Adapter le texte */
+    /* Centrage parfait de la vidéo */
+    .center-video {
+        width: 100%;
+        padding: 0 10px; /* Ajoute un peu d’espace pour éviter que ça colle aux bords */
+    }
+
+    /* Corrige le problème de fond qui bouge */
     body {
-        font-size: 16px;
+        background-attachment: scroll;
     }
 
     h1 {
@@ -393,11 +400,6 @@ section {
     #topButton {
         font-size: 12px;
         padding: 8px 15px;
-    }
-
-    .center-video {
-        max-width: 100%;
-        padding: 0 10px; /* Ajoute un peu d'espace sur les bords */
     }
 }
 
