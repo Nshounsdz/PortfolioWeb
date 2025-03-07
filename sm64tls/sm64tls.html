@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="sm64tls.css">
 </head>
 <body>
-    <audio id="background-music" loop>
-        <source src="media/mha.mp3" type="audio/mp3">
-        Votre navigateur ne supporte pas l'élément audio.
-    </audio>
+    <audio id="background-music"></audio>
 
     <header class="fade-in">
         <h1>Super Mario 64: The Lost Stars</h1>
@@ -152,7 +149,7 @@
         </section>
 
         <section class="copyrights">
-            <p>Super Mario™ est une licence appartenant à Nintendo®. Super Mario 64™ est un jeu créé, édité et publié par Nintendo®. SM64: The Lost Stars est une ROM hack réalisée à titre non lucratif. Ce projet n'est pas partageable ni téléchargeable sur Internet. Tous les droits reviennent à Nintendo®.</p>
+            <p>Super Mario™ est une licence appartenant à Nintendo®. Super Mario 64™ est un jeu créé, édité et publié par Nintendo®. SM64: The Lost Stars est une ROM hack réalisée à titre non lucratif. Ce projet n'est pas partageable ni téléchargeable sur Internet. Tous les droits reviennent à Nintendo®. Les musiques et les images des musiques sont originaire de la Rom Hack B3313, crée par: Bikdiponabus, chrisbrutalagresion, NewSupKaizo55, PatCangy et SonicandMarioGames1985. Les musiques ont été composées par: Bobstar, Curly, NewSupKaizo55, NicoSwitch, wasteofblood et Willisaclown.</p>
         </section>
     </main>
 
@@ -165,6 +162,7 @@
     <div id="music-popup" class="music-popup" onmouseleave="setTimeout(hidePopup, 3000)">
         🎵 Activer la musique ?
         <button onclick="playMusic()">Oui</button>
+        <p id="music-title" class="music-title">🎵 Aucune musique en cours</p>
         <div id="volume-control" class="volume-slider">
             🔊 Volume : <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5" onchange="adjustVolume(this.value)">
         </div>

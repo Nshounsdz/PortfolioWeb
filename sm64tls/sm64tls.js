@@ -28,56 +28,82 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// 🎵 Liste des musiques avec leur image de fond associée
+const musicList = [
+    { src: "media/musics/B3313 1.0 OST - 3rd Floor (Beta).mp3", title: "B3313 1.0 OST - 3rd Floor (Beta)", image: "media/musics/B3313 1.0 OST - 3rd Floor (Beta).png" },
+    { src: "media/musics/B3313 1.0 OST - Grim Green Forest.mp3", title: "B3313 1.0 OST - Grim Green Forest", image: "media/musics/B3313 1.0 OST - Grim Green Forest.png" },
+    { src: "media/musics/B3313 1.0 OST - His Domain  Plexal Hallway.mp3", title: "B3313 1.0 OST - His Domain  Plexal Hallway", image: "media/musics/B3313 1.0 OST - His Domain  Plexal Hallway.png" },
+    { src: "media/musics/B3313 1.0 OST - Nebula Castle Lobby.mp3", title: "B3313 1.0 OST - Nebula Castle Lobby", image: "media/musics/B3313 1.0 OST - Nebula Castle Lobby.png" },
+    { src: "media/musics/B3313 1.0 OST - Parallel Lobby.mp3", title: "B3313 1.0 OST - Parallel Lobby", image: "media/musics/B3313 1.0 OST - Parallel Lobby.png" },
+    { src: "media/musics/B3313 1.0 OST - Wet-Dry Docks Dry Town.mp3", title: "B3313 1.0 OST - Wet-Dry Docks Dry Town", image: "media/musics/B3313 1.0 OST - Wet-Dry Docks Dry Town.png" },
+];
 
-document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(() => {
-        document.getElementById("music-popup").classList.add("show");
-        document.getElementById("volume-control").style.display = "block";
-    }, 1000);
-});
+const musicElement = document.getElementById("background-music");
+const musicTitleElement = document.getElementById("music-title");
+const musicPopup = document.getElementById("music-popup");
+const playButton = document.querySelector("#music-popup button:first-of-type");
+const volumeSlider = document.getElementById("volume-slider");
 
-let hidePopupTimeout;
+let lastMusicIndex = -1; // Stocke l'index de la dernière musique jouée
 
-function startHidePopupTimer() {
-    hidePopupTimeout = setTimeout(hidePopup, 10000);
+// 🔀 Fonction pour choisir une musique aléatoire différente de la précédente
+function getRandomMusic() {
+    let newIndex;
+    do {
+        newIndex = Math.floor(Math.random() * musicList.length);
+    } while (newIndex === lastMusicIndex);
+
+    lastMusicIndex = newIndex;
+    return musicList[newIndex];
 }
 
-function cancelHidePopupTimer() {
-    clearTimeout(hidePopupTimeout);
-}
-
-document.getElementById("music-popup").addEventListener("mouseleave", startHidePopupTimer);
-document.getElementById("music-popup").addEventListener("mouseenter", cancelHidePopupTimer);
-
-document.getElementById("toggle-popup").addEventListener("click", function() {
-    showPopup();
-    cancelHidePopupTimer();
-});
-
+// ▶️ Fonction pour démarrer la musique et changer l’image du pop-up
 function playMusic() {
-    const music = document.getElementById("background-music");
-    music.volume = 0.5;
-    music.play().catch(error => console.log("Lecture bloquée :", error));
-    const playButton = document.querySelector("#music-popup button:first-of-type");
-    playButton.textContent = "Stop";
-    playButton.setAttribute("onclick", "toggleMusic()")
+    const randomMusic = getRandomMusic();
+    musicElement.src = randomMusic.src;
+    musicElement.volume = volumeSlider.value;
+    musicTitleElement.textContent = "🎵 " + randomMusic.title;
+
+    // Vérifie si l'élément musicPopup existe avant de modifier son style
+    if (musicPopup) {
+        musicPopup.style.backgroundImage = `url('${randomMusic.image}')`;
+    }
+
+    musicElement.play().then(() => {
+        console.log("Lecture démarrée :", randomMusic.title);
+        playButton.textContent = "⏸ Pause";
+        playButton.setAttribute("onclick", "toggleMusic()");
+    }).catch(error => {
+        console.log("Erreur de lecture :", error);
+    });
 }
 
+// ⏯ Fonction pour mettre en pause ou relancer la musique
 function toggleMusic() {
-    const music = document.getElementById("background-music");
-    const button = document.querySelector("#music-popup button:first-of-type");
-    if (music.paused) {
-        music.play();
-        button.textContent = "Stop";
+    if (musicElement.paused) {
+        musicElement.play();
+        playButton.textContent = "⏸ Pause";
     } else {
-        music.pause();
-        button.textContent = "Play";
+        musicElement.pause();
+        playButton.textContent = "▶️ Play";
     }
 }
 
+// 🔊 Fonction pour ajuster le volume
 function adjustVolume(value) {
-    document.getElementById("background-music").volume = value;
+    musicElement.volume = value;
 }
+
+// 🔁 Quand une musique est terminée, choisir une autre et changer l'image
+musicElement.addEventListener("ended", playMusic);
+
+// 🎶 Attendre que l'utilisateur clique sur "Oui" pour démarrer
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("music-popup").classList.add("show");
+    document.getElementById("volume-control").style.display = "block";
+});
+
+
 
 function hidePopup() {
     document.getElementById("music-popup").classList.remove("show");
@@ -88,6 +114,8 @@ function showPopup() {
     document.getElementById("music-popup").classList.add("show");
     document.getElementById("toggle-popup").style.display = "none";
 }
+
+
 
 const body = document.body;
 
